@@ -16,9 +16,9 @@ export default function Favorites() {
 
   return (
     <>
-      <Grid container spacing={3}>
+      <Grid container spacing={4}>
         {favoritesList.map((item, index) => (
-          <Grid item xs={3} key={index}>
+          <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
             <PersonCard person={item} />
           </Grid>
         ))}

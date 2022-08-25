@@ -95,7 +95,7 @@ export default function Home() {
 
   return (
     <>
-      <Grid container spacing={3}>
+      <Grid container spacing={4}>
         {peoplesList.map((item, index) => {
           return peoplesList.length === index + 1 ? (
             <Grid

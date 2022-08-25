@@ -20,7 +20,6 @@ import {
 import { useDispatch } from 'react-redux';
 
 export const PersonCard = ({ person }) => {
-  console.log(person);
   const dispatch = useDispatch();
 
   const handleAddOrRemove = () => {

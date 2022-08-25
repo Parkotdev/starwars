@@ -8,20 +8,23 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import navbarImg from '../img/starwars.svg';
 
-const pages = [
+let pages = [
   { name: 'Inicio', url: '/' },
   { name: 'Favoritos', url: '/favorites' },
 ];
 
 export default function NavBar() {
   const navigate = useNavigate();
+  const locationP = useLocation();
+
+  const [active, setActive] = useState([true, false]);
+
   const [anchorElNav, setAnchorElNav] = useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -32,6 +35,10 @@ export default function NavBar() {
     setAnchorElNav(null);
     if (nav) navigate(url);
   };
+
+  useEffect(() => {
+    setActive(locationP.pathname === '/' ? [true, false] : [false, true]);
+  }, [locationP]);
 
   return (
     <AppBar position='sticky' sx={{ backgroundColor: 'rgb(27, 26, 23);' }}>
@@ -44,11 +51,21 @@ export default function NavBar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }} />
 
           <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
-            {pages.map((page) => (
+            {pages.map((page, index) => (
               <Button
                 key={page.name}
                 onClick={() => handleCloseNavMenu(page.url, true)}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{
+                  my: 2,
+                  color: 'white',
+                  display: 'block',
+                  borderBottom: active[index]
+                    ? 'solid rgb(255, 160, 0)'
+                    : 'none',
+                  '&:hover': {
+                    backgroundColor: 'rgb(255, 160, 0, 0.5)',
+                  },
+                }}
               >
                 {page.name}
               </Button>
@@ -85,13 +102,20 @@ export default function NavBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
+              {pages.map((page, index) => (
                 <MenuItem
                   key={page.name}
                   onClick={() => handleCloseNavMenu(page.url, true)}
+                  sx={{
+                    backgroundColor: active[index]
+                      ? 'rgb(255, 160, 0)'
+                      : 'none',
+                    '&:hover': {
+                      backgroundColor: 'rgb(255, 160, 0, 0.5)',
+                    },
+                  }}
                 >
                   <Typography textAlign='center'>{page.name}</Typography>
-                  <Link to={page.url} />
                 </MenuItem>
               ))}
             </Menu>
