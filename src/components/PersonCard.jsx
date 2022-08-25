@@ -19,8 +19,6 @@ import {
 } from '../reducers/favorite/favoriteSlice';
 import { useDispatch } from 'react-redux';
 
-import luke from '../img/people/1.jpg';
-
 export const PersonCard = ({ person }) => {
   console.log(person);
   const dispatch = useDispatch();
@@ -55,7 +53,6 @@ export const PersonCard = ({ person }) => {
       <CardMedia
         component='img'
         image={`/assets/${person.id}.jpg`}
-        //image={luke}
         alt={person.name}
         height={250}
         sx={{ width: 'initial' }}
