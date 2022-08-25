@@ -98,11 +98,19 @@ export default function Home() {
       <Grid container spacing={3}>
         {peoplesList.map((item, index) => {
           return peoplesList.length === index + 1 ? (
-            <Grid item xs={3} key={index} ref={lastPeople}>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              key={index}
+              ref={lastPeople}
+            >
               <PersonCard person={item} />
             </Grid>
           ) : (
-            <Grid item xs={3} key={index}>
+            <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
               <PersonCard person={item} />
             </Grid>
           );

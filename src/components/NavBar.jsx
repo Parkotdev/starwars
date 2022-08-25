@@ -37,11 +37,25 @@ export default function NavBar() {
     <AppBar position='sticky' sx={{ backgroundColor: 'rgb(27, 26, 23);' }}>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
+          <Box sx={{ mr: 1, display: { xs: 'none', sm: 'flex' } }}>
             <img src={navbarImg} height={50} />
           </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }} />
+
+          <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+            {pages.map((page) => (
+              <Button
+                key={page.name}
+                onClick={() => handleCloseNavMenu(page.url, true)}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                {page.name}
+              </Button>
+            ))}
+          </Box>
+
+          <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
             <IconButton
               size='large'
               aria-label='account of current user'
@@ -83,36 +97,10 @@ export default function NavBar() {
             </Menu>
           </Box>
 
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }} />
 
-          <Typography
-            variant='h5'
-            noWrap
-            component='a'
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page.name}
-                onClick={() => handleCloseNavMenu(page.url, true)}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page.name}
-              </Button>
-            ))}
+          <Box sx={{ mr: 1, display: { xs: 'flex', sm: 'none' } }}>
+            <img src={navbarImg} height={50} />
           </Box>
         </Toolbar>
       </Container>
