@@ -41,7 +41,7 @@ export const PersonCard = ({ person }) => {
             onClick={handleAddOrRemove}
             sx={{
               p: '3px',
-              color: '#fff',
+              color: 'rgb(255, 160, 0)',
               '& > svg': { width: '2em', height: '2em' },
             }}
           >
