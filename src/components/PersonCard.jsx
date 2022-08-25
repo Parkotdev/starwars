@@ -54,7 +54,7 @@ export const PersonCard = ({ person }) => {
 
       <CardMedia
         component='img'
-        image={`/src/img/people/${person.id}.jpg`}
+        image={`/src/img/${person.id}.jpg`}
         //image={luke}
         alt={person.name}
         height={250}
