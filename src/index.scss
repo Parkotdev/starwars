@@ -29,3 +29,17 @@ body {
     transform: translateY(0);
   }
 }
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(240, 165, 0);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(125, 125, 125);
+  border-radius: 4px;
+}
