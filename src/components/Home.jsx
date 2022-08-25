@@ -23,7 +23,6 @@ export default function Home() {
   const observer = useRef();
   const lastPeople = useCallback(
     (node) => {
-      console.log(totalPeoples);
       if (loading) return;
       if (totalPeoples === peoplesList.length) return;
       if (observer.current) observer.current.disconnect();

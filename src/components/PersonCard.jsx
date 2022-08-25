@@ -1,7 +1,9 @@
 import {
+  Avatar,
   Card,
   CardContent,
   CardHeader,
+  CardMedia,
   IconButton,
   Typography,
 } from '@mui/material';
@@ -17,7 +19,10 @@ import {
 } from '../reducers/favorite/favoriteSlice';
 import { useDispatch } from 'react-redux';
 
+import luke from '../img/people/1.jpg';
+
 export const PersonCard = ({ person }) => {
+  console.log(person);
   const dispatch = useDispatch();
 
   const handleAddOrRemove = () => {
@@ -31,15 +36,38 @@ export const PersonCard = ({ person }) => {
   return (
     <Card className='card'>
       <CardHeader
-        sx={{ p: '8px 8px 0' }}
+        sx={{ p: 0, '& .MuiCardHeader-action': { margin: '0 0 -54px' } }}
         action={
-          <IconButton aria-label='settings' onClick={handleAddOrRemove}>
+          <IconButton
+            size='large'
+            onClick={handleAddOrRemove}
+            sx={{
+              p: '3px',
+              color: '#fff',
+              '& > svg': { width: '2em', height: '2em' },
+            }}
+          >
             {person.favorite ? <StarRoundedIcon /> : <StarOutlineRoundedIcon />}
           </IconButton>
         }
       />
 
-      <CardContent sx={{ pt: 0 }}>
+      <CardMedia
+        component='img'
+        image={`/src/img/people/${person.id}.jpg`}
+        //image={luke}
+        alt={person.name}
+        height={250}
+        sx={{ width: 'initial' }}
+      />
+
+      <CardContent
+        sx={{
+          color: '#fff',
+          backgroundColor: '#282727',
+          borderTop: 'solid #9e4f60',
+        }}
+      >
         <Typography>
           <strong>Nombre:</strong> {person.name}
         </Typography>

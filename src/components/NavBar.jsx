@@ -13,6 +13,8 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+import navbarImg from '../img/starwars.svg';
+
 const pages = [
   { name: 'Inicio', url: '/' },
   { name: 'Favoritos', url: '/favorites' },
@@ -35,24 +37,9 @@ export default function NavBar() {
     <AppBar position='sticky'>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-
-          <Typography
-            variant='h6'
-            noWrap
-            component='a'
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
+            <img src={navbarImg} height={50} />
+          </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton

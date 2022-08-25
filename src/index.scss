@@ -1,13 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
+
 body {
   margin: 0;
-  background: #f5f6f8;
+  min-height: 100vh;
+  background-image: url(img/fondBody.gif);
 
   .card {
     animation: fadeInMove 1s ease;
     border-radius: 0.625rem;
+    background-color: #090621;
     box-shadow: 0 2px 0 rgba(90, 97, 105, 0.11),
       0 4px 8px rgba(90, 97, 105, 0.12), 0 10px 10px rgba(90, 97, 105, 0.06),
       0 7px 70px rgba(90, 97, 105, 0.1);
+
+    p {
+      font-family: 'DynaPuff', 'Helvetica', 'Arial', sans-serif;
+      font-size: 1.25rem;
+    }
   }
 }
 
