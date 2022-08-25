@@ -34,7 +34,7 @@ export default function NavBar() {
   };
 
   return (
-    <AppBar position='sticky'>
+    <AppBar position='sticky' sx={{ backgroundColor: 'rgb(27, 26, 23);' }}>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
